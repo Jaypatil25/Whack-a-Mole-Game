@@ -15,7 +15,7 @@ A fun and interactive game where you whack moles popping out of holes! Test your
 
 ## 🛠️ Technologies Used
 - React
-- 
+  
 ## 📂 Installation
 ```zsh
 # Clone the repository
