@@ -1,0 +1,143 @@
+.mole-hole {
+  background-color: var(--hole-color);
+  height: 120px;
+  border-radius: 50% 50% 10% 10%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: inset 0 -10px 10px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s;
+  border: 4px solid #2d1b13;
+}
+
+.mole-hole:hover {
+  transform: scale(1.02);
+}
+
+.mole-hole:active {
+  transform: scale(0.98);
+}
+
+.mole {
+  position: absolute;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80%;
+  background-color: var(--mole-color);
+  border-radius: 50% 50% 40% 40%;
+  transition: bottom 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mole.visible {
+  bottom: 0;
+  animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mole.whacked {
+  animation: whacked 0.2s ease-out;
+}
+
+
+.mole-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.mole-eyes {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mole-eye {
+  width: 20%;
+  height: 20%;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.mole-eye::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background-color: #333;
+  border-radius: 50%;
+}
+
+
+.mole-nose {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: 15%;
+  background-color: var(--mole-nose);
+  border-radius: 50%;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.footer{
+  text-align: center;
+}
+.mole-mouth {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 10%;
+  background-color: #5d4037;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+@keyframes popUp {
+  0% {
+    bottom: -100%;
+  }
+  70% {
+    bottom: 10%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes whacked {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(0.8) rotate(5deg);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .mole-hole {
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mole-hole {
+    height: 80px;
+  }
+}
+
