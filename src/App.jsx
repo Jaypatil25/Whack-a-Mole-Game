@@ -11,7 +11,7 @@ function App() {
   const [moles, setMoles] = useState(Array(9).fill(false))
   const [gameOver, setGameOver] = useState(false)
 
-  // Start the game
+
   const startGame = () => {
     setScore(0)
     setTimeLeft(30)
@@ -20,19 +20,19 @@ function App() {
     setMoles(Array(9).fill(false))
   }
 
-  // Handle whacking a mole
+
   const whackMole = (index) => {
     if (moles[index] && gameStarted) {
       setScore(score + 1)
 
-      // Hide the mole that was clicked
+
       const newMoles = [...moles]
       newMoles[index] = false
       setMoles(newMoles)
     }
   }
 
-  // Game timer
+
   useEffect(() => {
     let timer
     if (gameStarted && timeLeft > 0) {
@@ -47,7 +47,7 @@ function App() {
     return () => clearTimeout(timer)
   }, [timeLeft, gameStarted])
 
-  // Make moles appear randomly
+
   useEffect(() => {
     let moleTimer
 
